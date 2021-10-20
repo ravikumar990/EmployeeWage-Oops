@@ -8,14 +8,22 @@ public class EmpWageBuilder {
 
 		// constant
 		int is_full_time = 1;
+		int empRatePerHr = 20;
+
+		int empHours = 0;
+		int empWage = 0;
 
 		// Generate random value to check employee present or absent
 		double empcheck = Math.floor(Math.random() * 10) % 2;
 
 		// Condition statement
 		if (is_full_time == empcheck)
-			System.out.println("Employee is Present");
+			empHours = 8;
 		else
-			System.out.println("Employee is Absent");
+			empHours = 0;
+
+		// Calculat employee wage
+		empWage = empHours * empRatePerHr;
+		System.out.println("Employee Wage : " + empWage);
 	}
 }
