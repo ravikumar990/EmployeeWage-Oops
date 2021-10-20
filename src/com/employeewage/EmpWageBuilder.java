@@ -4,22 +4,26 @@ package com.employeewage;
 
 public class EmpWageBuilder {
 	// constant
-	public static final int is_full_time = 1;
-	public static final int is_part_time = 2;
-	public static final int empRatePerHr = 20;
-	public static final int numOfWorkingday = 20;
-	public static final int maxHrInMonth = 100;
+	public static final int IS_FULL_TIME = 1;
+	public static final int IS_PART_TIME = 2;
+	public static final int EMP_RATE_PER_HR = 20;
+	public static final int NUM_OF_WORKING_DAYS = 20;
+	public static final int MAX_HRS_IN_MONTH = 100;
 
 	// main method
 	public static void main(String args[]) {
+		computeEmpWage();
+	}
+
+	// Wage Computation method
+	public static int computeEmpWage() {
 
 		// variables
 		int empHours = 0;
-		int empWage = 0;
 		int totalWorkingDay = 0;
 		int totalEmpHours = 0;
 
-		while (totalEmpHours <= maxHrInMonth && totalWorkingDay <= numOfWorkingDay) {
+		while (totalEmpHours <= MAX_HRS_IN_MONTH && totalWorkingDay <= NUM_OF_WORKING_DAYS) {
 			totalWorkingDay++;
 			// Generate random value to check employee do work full time, part time or
 			// absent
@@ -27,10 +31,10 @@ public class EmpWageBuilder {
 
 			// Condition statement switch case
 			switch (empcheck) {
-			case is_full_time:
+			case IS_FULL_TIME:
 				empHours = 8;
 				break;
-			case is_part_time:
+			case IS_PART_TIME:
 				empHours = 4;
 				break;
 			default:
@@ -42,7 +46,8 @@ public class EmpWageBuilder {
 			System.out.println("Working day : " + totalWorkingDay + " and Employee Hours : " + empHours);
 		}
 
-		int totalEmpWage = totalEmpHours * empRatePerHr;
+		int totalEmpWage = totalEmpHours * EMP_RATE_PER_HR;
 		System.out.println("Monthly Employee Wage is " + totalEmpWage);
+		return totalEmpWage;
 	}
 }
